@@ -3,3 +3,5 @@
 <%= render 'shared/nav' %>
 
 <%= @blog.inspect %>
+
+<%= link_to 'Delete', blog_path(@blog), method: :delete, id: "delete_blog_#{@blog.id}_from_index", data: {confirm: 'You sure?' } %>

@@ -22,6 +22,24 @@ describe 'navigate' do
     end
   end
 
+  describe 'delete' do
+    it 'can be deleted' do
+      visit blog_path
+
+      click_link("delete_blog_#{@blog.id}_from_index")
+      expect(page.status_code).to eq(200)
+    end
+  end
+
+  describe 'edit' do
+    it 'can be reached by clicking on edit in index page' do
+      visit blogs_path
+
+      click_link("edit_#{@post.id}")
+      expect(page.status_code).to eq(200)
+    end
+  end
+
   describe 'creation' do
     before do
       visit new_blog_path
@@ -40,4 +58,5 @@ describe 'navigate' do
       expect(page).to have_content("A little bit of content")
     end
   end
+
 end
